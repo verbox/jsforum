@@ -1,6 +1,11 @@
 *.class
 
 # Package Files #
-*.jar
+# Wywal wszyskie jary procz katalogu lib#
+/jsforum/nbproject/*.jar
+/jsforum/src/*.jar
+#Wywal builda#
+/jsforum/build/
 *.war
 *.ear
+/jsforum/nbproject/private/
