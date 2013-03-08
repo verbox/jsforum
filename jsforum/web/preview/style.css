@@ -1,0 +1,50 @@
+/* 
+    Document   : style
+    Created on : 2013-03-08, 09:24:18
+    Author     : piotr
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+header {
+    color: white;
+    background-color: red;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+}
+
+nav {
+    overflow: hidden;
+}
+
+nav.main {
+    color: white;
+    background-color: blue;
+}
+
+nav.dynamic {
+    width: 25%;
+    background-color: #9966CC;
+    float: right;
+}
+
+section {
+    width: 75%;
+    overflow: hidden;
+    float: left;
+}
+
+section.main {
+    
+}
+
+footer {
+    clear: both;
+    background-color: grey;
+    color: white;
+}
+
