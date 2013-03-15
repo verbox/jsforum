@@ -8,6 +8,7 @@
 
 root { 
     display: block;
+    font-family: verdana;
 }
 
 header {
@@ -27,19 +28,44 @@ nav.main {
 }
 
 nav.dynamic {
-    width: 25%;
-    background-color: #9966CC;
+    margin-top: 10px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    width: 150px;
     float: right;
+    background-color: #E8E8E8;
+    position: relative;
+    text-align: center;
+}
+
+nav.dynamic ul {
+    padding: 0px;
+    margin: 0px;
+    color: red; 
+}
+
+nav.dynamic ul li {
+    border: 1px solid grey;
+    border-radius: 2px;
+    padding-left: 0px;
+}
+
+nav.dynamic ul li:hover {
+    background-color: black;
+    color: white;
 }
 
 section {
-    width: 75%;
     overflow: hidden;
     float: left;
 }
 
 section.main {
-    
+    width: 800px;
+    margin-right: 10px; 
+    overflow: hidden;
+    float: left;
+    position: relative;
 }
 
 footer {
