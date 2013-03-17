@@ -9,3 +9,4 @@
 *.war
 *.ear
 /jsforum/nbproject/private/
+/doc/*.bak
