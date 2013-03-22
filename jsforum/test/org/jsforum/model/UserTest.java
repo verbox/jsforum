@@ -4,7 +4,10 @@
  */
 package org.jsforum.model;
 
+import java.io.Serializable;
+import java.util.List;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.jsforum.hibernate.HibernateUtil;
 import org.junit.After;
 import static org.junit.Assert.*;
@@ -52,5 +55,17 @@ public class UserTest {
         //u mnie pod id=1 jest Bonifacy Stonoga
         assertEquals("Bonifacy Stonoga", user.getUsername());
         assertEquals("test",user.getPassword());
+        session.close();
+    }
+    
+    @Test
+    public void testAddAndRemoveUser() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        User user = new User("Jan K", "test");
+        session.save(user);
+        List<User> findedUsers = session.createCriteria(User.class).add(Restrictions.like("username","Jan K")).list();
+        assertEquals(findedUsers.get(0).getUsername(),"Jan K");
+        session.disconnect();
     }
 }
