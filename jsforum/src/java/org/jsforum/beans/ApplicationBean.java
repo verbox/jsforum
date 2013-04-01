@@ -12,6 +12,7 @@ import javax.inject.Named;
 import org.jsforum.beans.userbeans.CurrentUserBean;
 import org.jsforum.beans.userbeans.LoginUserBean;
 import org.jsforum.model.User;
+import org.jsforum.model.dispatchers.UsersDispatcher;
 
 /**
  *
@@ -21,21 +22,24 @@ import org.jsforum.model.User;
 @ApplicationScoped
 public final class ApplicationBean {
 
+    private UsersDispatcher usersDispatcher;
+    
     /**
      * Creates a new instance of ApplicationBean
      */
     public ApplicationBean() {
+        init();
     }
     
     public String loginUser(LoginUserBean loginBean, CurrentUserBean userBean) {
-        //TODO na razie - okej, loguj na sztywno jakiegoś jana nowaka
-        userBean.setCurrentUser(new User("Jan Nowak","dkshgf","abc@wp.pl"));
+        User user = usersDispatcher.getUser(loginBean.getUsername(), loginBean.getPassword());
+        userBean.setCurrentUser(user);
         //mechanizm logowania
         return "index";
     }
     
     @PostConstruct
     public void init() {
-        
+        usersDispatcher = new UsersDispatcher();
     }
 }

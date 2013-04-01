@@ -34,14 +34,22 @@ public class LoginUserBean {
     }
 
     public void setPassword(String password) {
-        MessageDigest md = null;
         try {
-            md = MessageDigest.getInstance("MD5");
-            this.password = new String(md.digest(password.getBytes("UTF8")),"UTF8");
+            this.password = getMD5(password);
         }
         catch (Exception ex) {
             System.out.println("Serwer nie obsługuje szyfrowania.");
         }
+    }
+    
+    private String getMD5(String string) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] array = md.digest(string.getBytes());
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < array.length; ++i) {
+          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+        }
+        return sb.toString();
     }
     
     /**

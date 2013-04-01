@@ -54,7 +54,8 @@ public class UserTest {
         System.out.println(user.getUsername());
         //u mnie pod id=1 jest Bonifacy Stonoga
         assertEquals("Bonifacy Stonoga", user.getUsername());
-        assertEquals("test",user.getPassword());
+        //poprawka 1.04.13 - korzystam z MD5
+        assertEquals("098f6bcd4621d373cade4e832627b4f6",user.getPassword());
         session.close();
     }
     
