@@ -62,7 +62,7 @@ public class UserTest {
     public void testAddAndRemoveUser() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        User user = new User("Jan K", "test");
+        User user = new User("Jan K", "test", "abc@wp.pl");
         session.save(user);
         List<User> findedUsers = session.createCriteria(User.class).add(Restrictions.like("username","Jan K")).list();
         assertEquals(findedUsers.get(0).getUsername(),"Jan K");
