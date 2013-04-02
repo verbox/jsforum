@@ -11,6 +11,7 @@ import javax.faces.bean.CustomScoped;
 import javax.inject.Named;
 import org.jsforum.beans.userbeans.CurrentUserBean;
 import org.jsforum.beans.userbeans.LoginUserBean;
+import org.jsforum.beans.userbeans.RegisterUserBean;
 import org.jsforum.model.User;
 import org.jsforum.model.dispatchers.UsersDispatcher;
 
@@ -36,6 +37,14 @@ public final class ApplicationBean {
         userBean.setCurrentUser(user);
         //mechanizm logowania
         return "index";
+    }
+    
+    public String registerUser(RegisterUserBean registerUserBean) {
+        //TODO sprawdź, czy zgadza się password i confirmPassword
+        if (usersDispatcher.addUser(registerUserBean))
+            return "index";
+        //TODO komunikaty
+        return "register";
     }
     
     @PostConstruct

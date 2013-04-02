@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputLabel value="Login: "></h:outputLabel>
+                    <h:inputText id="inputLogin" value="#{registerUserBean.username}" required="true"></h:inputText>
+                    <h:message for="inputLogin"></h:message>
+                    
+                    <h:outputLabel value="Hasło: "></h:outputLabel>
+                    <h:inputText id="inputPassword" value="#{registerUserBean.password}" required="true"></h:inputText>
+                    <h:message for="inputPassword"></h:message>
+                    
+                    <h:outputLabel value="Potwierdź hasło: "></h:outputLabel>
+                    <h:inputText id="inputCPassword" value="#{registerUserBean.confirmPassword}" required="true"></h:inputText>
+                    <h:message for="inputCPassword"></h:message>
+                    
+                    <h:outputLabel value="E-mail: "></h:outputLabel>
+                    <h:inputText id="inputMail" value="#{registerUserBean.email}" required="true"></h:inputText>
+                    <h:message for="inputMail"></h:message>
+                    
+                    <h:commandButton value="Rejestruj" action="#{applicationBean.registerUser(registerUserBean)}"></h:commandButton>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

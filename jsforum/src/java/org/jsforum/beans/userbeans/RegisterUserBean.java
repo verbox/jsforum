@@ -4,9 +4,6 @@
  */
 package org.jsforum.beans.userbeans;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -16,10 +13,11 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class LoginUserBean {
-    
+public class RegisterUserBean {
     private String username;
     private String password;
+    private String confirmPassword;
+    private String email;
 
     public String getUsername() {
         return username;
@@ -34,18 +32,28 @@ public class LoginUserBean {
     }
 
     public void setPassword(String password) {
-        try {
-            this.password = CurrentUserBean.getMD5(password);
-        }
-        catch (Exception ex) {
-            System.out.println("Serwer nie obsługuje szyfrowania.");
-        }
+        this.password = CurrentUserBean.getMD5(password);
     }
-    
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = CurrentUserBean.getMD5(confirmPassword);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     /**
-     * Creates a new instance of LoginUserBean
+     * Creates a new instance of RegisterUserBean
      */
-    public LoginUserBean() {
+    public RegisterUserBean() {
     }
-    
 }

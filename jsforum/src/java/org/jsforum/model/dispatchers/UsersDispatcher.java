@@ -4,10 +4,12 @@
  */
 package org.jsforum.model.dispatchers;
 
+import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.jsforum.beans.userbeans.RegisterUserBean;
 import org.jsforum.hibernate.HibernateUtil;
 import org.jsforum.model.User;
 
@@ -28,7 +30,19 @@ public class UsersDispatcher {
             //TODO jakiś zgrabny wyjątek
         }
         if (findedUsers.isEmpty()) return null;
+        session.close();
         return findedUsers.get(0);
+    }
+    
+    public boolean addUser(RegisterUserBean registerUserBean) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        User user = new User(registerUserBean.getUsername(),registerUserBean.getPassword(),
+                registerUserBean.getEmail());
+        //TODO sprawdzić, czy nie ma już usera o danym loginie
+        session.save(user);
+        session.getTransaction().commit();
+        return true;
     }
     
 }

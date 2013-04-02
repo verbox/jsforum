@@ -11,7 +11,9 @@
             Cześć, niezalogowany
         </c:if>
         <h:outputLabel value="Cześć, #{currentUserBean.currentUser.username}" rendered="${!empty currentUserBean.currentUser}"></h:outputLabel><br />
-        <h:link value="Loguj" outcome="login"></h:link>
+        <h:link value="Loguj" outcome="login" rendered="${empty currentUserBean.currentUser}"></h:link><br />
+        <h:link value="Rejestruj" outcome="register" rendered="${empty currentUserBean.currentUser}"></h:link><br />
+        <h:link value="Wyloguj" outcome="#{currentUserBean.logout()}" rendered="${!empty currentUserBean.currentUser}"></h:link>
     </h:body>
 </html>
 
