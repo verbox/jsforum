@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="./template.xhtml">
+
+    <ui:define name="top">
+        Rejestracja
+    </ui:define>
+
+    <ui:define name="mainView">
+        <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputLabel value="Login: "></h:outputLabel>
+                    <h:inputText id="inputLogin" value="#{registerUserBean.username}" required="true"></h:inputText>
+                    <h:message for="inputLogin"></h:message>
+                    
+                    <h:outputLabel value="Hasło: "></h:outputLabel>
+                    <h:inputText id="inputPassword" value="#{registerUserBean.password}" required="true"></h:inputText>
+                    <h:message for="inputPassword"></h:message>
+                    
+                    <h:outputLabel value="Potwierdź hasło: "></h:outputLabel>
+                    <h:inputText id="inputCPassword" value="#{registerUserBean.confirmPassword}" required="true"></h:inputText>
+                    <h:message for="inputCPassword"></h:message>
+                    
+                    <h:outputLabel value="E-mail: "></h:outputLabel>
+                    <h:inputText id="inputMail" value="#{registerUserBean.email}" required="true"></h:inputText>
+                    <h:message for="inputMail"></h:message>
+                    
+                    <h:commandButton value="Rejestruj" action="#{applicationBean.registerUser(registerUserBean)}"></h:commandButton>
+                </h:panelGrid>
+            </h:form>
+    </ui:define>
+
+    <ui:define name="secNav">
+        secNav
+    </ui:define>
+
+    <ui:define name="footer">
+        footer
+    </ui:define>
+
+</ui:composition>

@@ -18,7 +18,7 @@ public class RegisterUserBean {
     private String password;
     private String confirmPassword;
     private String email;
-
+    //TODO zrobić wstrzyknięcie ApplicationBean
     public String getUsername() {
         return username;
     }
