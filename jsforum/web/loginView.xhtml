@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="./template.xhtml">
+
+    <ui:define name="top">
+        Login
+    </ui:define>
+
+    <ui:define name="mainNav">
+        mainNav
+    </ui:define>
+
+    <ui:define name="mainView">
+        <h:form>
+                <h:panelGrid columns="2">
+                <h:outputLabel value="Login:"></h:outputLabel>
+                <h:inputText value="#{loginUserBean.username}"></h:inputText>
+                
+                <h:outputLabel value="Hasło:"></h:outputLabel>
+                <h:inputSecret value="#{loginUserBean.password}"></h:inputSecret>
+            
+                <h:commandButton value="Zaloguj" action="#{applicationBean.loginUser(loginUserBean,currentUserBean)}"></h:commandButton>
+                </h:panelGrid>
+            </h:form>
+    </ui:define>
+
+    <ui:define name="secNav">
+        secNav
+    </ui:define>
+
+    <ui:define name="footer">
+        footer
+    </ui:define>
+
+</ui:composition>

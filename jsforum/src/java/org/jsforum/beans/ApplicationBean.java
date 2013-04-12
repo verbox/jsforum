@@ -44,7 +44,7 @@ public final class ApplicationBean {
         if (usersDispatcher.addUser(registerUserBean))
             return "index";
         //TODO komunikaty
-        return "register";
+        return "registerView";
     }
     
     @PostConstruct
