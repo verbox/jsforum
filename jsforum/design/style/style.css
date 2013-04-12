@@ -1,0 +1,257 @@
+
+body
+{
+background: grey;
+width: 100%;
+
+font: 12px/20px Verdana, Arial, sens-serif;
+color:black;
+}
+
+
+
+a:visited 
+{
+color:inherit;
+}
+
+#wrapper 
+{
+background: white; 
+margin: 0 auto;
+width:1080px;
+margin-bottom:20px;
+overflow: hidden;
+border:2px;
+
+border-radius:25px;
+padding-bottom: 10px;
+padding-left: 20px;
+padding-top: 10px;
+padding-right: 10px:
+}
+
+
+
+header 
+{
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+background: grey;
+position: relative;
+margin-top: 20px;
+margin-right: 20px;
+height: 200px;
+border:2px;
+
+border-radius:25px;
+}
+
+
+
+
+
+#content-outside
+{
+color: white;
+background: grey;
+padding: 0 10px;
+overflow: hidden;
+border:2px solid;
+
+border-radius:25px;
+margin-top: 10px;
+margin-right: 20px;
+resize: vertical;
+}
+
+
+#content-inside 
+{
+color: black;
+background: silver;
+padding: 0 10px;
+border: 2px;
+margin-bottom: 10px;
+margin-top: 5px;
+margin-right: 20px;
+}
+
+
+article 
+{
+padding-bottom: 30px;
+}
+
+
+
+
+aside 
+{
+float:right;
+width:300px;
+}
+
+
+aside section
+{
+margin-bottom: 20px;
+overflow: hidden;
+}
+
+
+
+footer 
+{
+clear:both;
+margin-top:20px;
+margin-bottom:20px;
+margin-left:10px;
+margin-right:20px;
+padding:15px;
+background: #84BA4E;
+display: block;
+overflow: hidden;
+
+-moz-border-radius: 5px;
+             
+border-radius: 5px;
+}
+
+
+@font-face 
+{
+    
+font-family: 'GraublauWebBold';
+    
+src: url('../fonts/GraublauWebBold.eot');
+    
+src: url('../fonts/GraublauWebBold.eot?iefix') format('eot'),
+
+url('../fonts/graublauwebbold-webfont.woff') format('woff'),
+
+url('../fonts/GraublauWebBold.ttf') format('truetype'),
+         
+url('../fonts/GraublauWebBold.svg#webfontdZKyhquR') format('svg');
+   
+font-weight: normal;
+    
+font-style: normal;
+
+}
+
+
+
+@font-face 
+{
+    
+font-family: 'CapsuulaRegular';
+    
+src: url('../fonts/Capsuula-webfont.eot');
+    
+src: url('../fonts/Capsuula-webfont.eot?iefix') format('eot'),
+         
+url('../fonts/Capsuula-webfont.woff') format('woff'),
+         
+url('../fonts/Capsuula-webfont.ttf') format('truetype'),
+         
+url('../fonts/Capsuula-webfont.svg#webfont6Xxy5ivF') format('svg');
+    
+font-weight: normal;
+    
+font-style: normal;
+
+
+}
+
+
+
+.right 
+{
+float: right;
+}
+
+
+.left 
+{
+float:left;
+}
+
+
+
+header nav 
+{
+position: absolute;
+right: 10px;
+top:10px;
+}
+
+
+header nav ul 
+{
+margin:0; 
+padding:0;
+}
+
+
+header nav ul li
+{
+float:left;
+margin-left: 5px;
+position: relative;
+list-style: none;
+
+}
+
+
+header nav ul li a
+{
+color:#fff;
+text-decoration: none;
+font-size: 14px;
+padding:4px 8px;
+}
+
+
+header nav ul li a.active
+{
+
+background: #F9D468; /* old browsers */
+
+
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='green', endColorstr='red' ); /* ie */
+
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,  startColorstr='#green', endColorstr='#red')"; /* ie */
+
+
+background: -moz-linear-gradient(top, green 0%, red 100%); /* firefox */
+
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,green), color-stop(100%,red)); /* webkit */
+
+
+color:yellow;
+
+border:1px ;
+
+-moz-border-radius: 5px;
+
+border-radius: 5px;
+
+
+
+-webkit-box-shadow: 1px 1px 1px yellow;
+
+-moz-box-shadow: 1px 1px 2px yellow;
+
+box-shadow: 1px 1px 1px yellow;
+
+}
+
+
+header nav ul li a:hover
+{
+color:#764524;
+}
