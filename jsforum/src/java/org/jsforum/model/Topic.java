@@ -5,7 +5,9 @@
 package org.jsforum.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,14 +25,14 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "topics")
 public class Topic implements Serializable {
     @OneToMany(mappedBy = "topic")
-    @Cascade(CascadeType.ALL)
-    private List<Post> postsSet;
+    @Cascade({CascadeType.SAVE_UPDATE})
+    private Set<Post> postsSet;
 
-    public List<Post> getPostsSet() {
+    public Set<Post> getPostsSet() {
         return postsSet;
     }
 
-    public void setPostsSet(List<Post> postsSet) {
+    public void setPostsSet(Set<Post> postsSet) {
         this.postsSet = postsSet;
     }
     private static final long serialVersionUID = 1L;
@@ -38,6 +40,27 @@ public class Topic implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long topic_id;
 
+    public Topic(String topicName) {
+        this();
+        this.topicName = topicName;
+    }
+
+    public Topic() {
+        postsSet = new HashSet<Post>();
+    }
+
+    @Column(name = "name")
+    private String topicName;
+
+    public String getTopicName() {
+        return topicName;
+    }
+
+    public void setTopicName(String topicName) {
+        this.topicName = topicName;
+    }
+    
+    
     public Long getId() {
         return topic_id;
     }

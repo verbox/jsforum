@@ -1,3 +1,10 @@
+
+import org.hibernate.Session;
+import org.jsforum.hibernate.HibernateUtil;
+import org.jsforum.model.Post;
+import org.jsforum.model.Topic;
+import org.jsforum.model.User;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -9,6 +16,17 @@
  */
 public class Main {
     public static void main(String[] args) {
-        
+        /*
+         * 
+         */
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Topic superTopic = new Topic("test");
+        User superUser = new User("x", "y", "z");
+        Post post = new Post("tresc postu", superUser, superTopic);
+        session.save(superUser);
+        session.save(superTopic);
+        session.save(post);
+        session.getTransaction().commit();
     }
 }
