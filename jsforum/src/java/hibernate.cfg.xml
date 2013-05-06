@@ -12,5 +12,7 @@
     <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping resource="org/jsforum/model/User.hbm.xml"/>
+    <mapping class="org.jsforum.model.Post"/>
+    <mapping class="org.jsforum.model.Topic"/>
   </session-factory>
 </hibernate-configuration>

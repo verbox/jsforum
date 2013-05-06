@@ -4,7 +4,7 @@
 <!-- Generated 2013-03-17 12:01:10 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="org.jsforum.model.User" table="users" catalog="jsforum">
-        <id name="userId" type="java.lang.Integer">
+        <id name="userId" type="java.lang.Long">
             <column name="user_id" />
             <generator class="identity" />
         </id>

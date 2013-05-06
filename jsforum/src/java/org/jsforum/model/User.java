@@ -9,7 +9,7 @@ package org.jsforum.model;
 public class User  implements java.io.Serializable {
 
 
-     private Integer userId;
+     private Long userId;
      private String username;
      private String password;
      private String email;
@@ -31,11 +31,11 @@ public class User  implements java.io.Serializable {
        this.email = email;
     }
    
-    public Integer getUserId() {
+    public Long getUserId() {
         return this.userId;
     }
     
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
     public String getUsername() {
