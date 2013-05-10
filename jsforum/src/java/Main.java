@@ -4,6 +4,7 @@ import org.jsforum.hibernate.HibernateUtil;
 import org.jsforum.model.Post;
 import org.jsforum.model.Topic;
 import org.jsforum.model.User;
+import org.jsforum.model.dispatchers.PostDispatcher;
 
 /*
  * To change this template, choose Tools | Templates
@@ -19,6 +20,7 @@ public class Main {
         /*
          * 
          */
+        
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Topic superTopic = new Topic("test");
@@ -28,5 +30,7 @@ public class Main {
         session.save(superTopic);
         session.save(post);
         session.getTransaction().commit();
+        PostDispatcher pd = new PostDispatcher();
+        pd.getTopic(1);
     }
 }
