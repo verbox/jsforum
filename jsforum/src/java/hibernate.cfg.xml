@@ -7,6 +7,8 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost/jsforum</property>
     <property name="hibernate.connection.username">jsforum</property>
     <property name="hibernate.connection.password">jsforum</property>
+    <property name="hibernate.connection.useUnicode">true</property> 
+    <property name="hibernate.connection.characterEncoding">utf8</property> 
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>

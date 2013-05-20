@@ -13,7 +13,10 @@
         <h:outputLabel value="Cześć, #{currentUserBean.currentUser.username}" rendered="${!empty currentUserBean.currentUser}"></h:outputLabel><br />
         <h:link value="Loguj" outcome="loginView" rendered="${empty currentUserBean.currentUser}"></h:link><br />
         <h:link value="Rejestruj" outcome="registerView" rendered="${empty currentUserBean.currentUser}"></h:link><br />
-        <h:link value="Wyloguj" outcome="#{currentUserBean.logout()}" rendered="${!empty currentUserBean.currentUser}"></h:link>
+        <h:form rendered="${!empty currentUserBean.currentUser}">
+           <h:commandLink value="Wyloguj" action="#{currentUserBean.logout()}"></h:commandLink> 
+        </h:form>
+        
     </h:body>
 </html>
 

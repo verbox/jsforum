@@ -6,6 +6,7 @@ package org.jsforum.beans.userbeans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.jsforum.model.dispatchers.UsersDispatcher;
 
 /**
  *
@@ -32,7 +33,7 @@ public class RegisterUserBean {
     }
 
     public void setPassword(String password) {
-        this.password = CurrentUserBean.getMD5(password);
+        this.password = UsersDispatcher.getMD5(password);
     }
 
     public String getConfirmPassword() {
@@ -40,7 +41,7 @@ public class RegisterUserBean {
     }
 
     public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = CurrentUserBean.getMD5(confirmPassword);
+        this.confirmPassword = UsersDispatcher.getMD5(confirmPassword);
     }
 
     public String getEmail() {

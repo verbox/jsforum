@@ -1,6 +1,9 @@
 package org.jsforum.model;
 // Generated 2013-03-17 12:01:10 by Hibernate Tools 3.2.1.GA
 
+import org.jsforum.model.dispatchers.UsersDispatcher;
+
+
 
 
 /**
@@ -27,7 +30,7 @@ public class User  implements java.io.Serializable {
 
     public User(String username, String password, String email) {
        this.username = username;
-       this.password = password;
+       this.password = UsersDispatcher.getMD5(password);
        this.email = email;
     }
    
@@ -50,7 +53,7 @@ public class User  implements java.io.Serializable {
     }
     
     public void setPassword(String password) {
-        this.password = password;
+        this.password = UsersDispatcher.getMD5(password);
     }
 
 

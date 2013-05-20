@@ -5,6 +5,7 @@
 package org.jsforum.model.dispatchers;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -18,6 +19,21 @@ import org.jsforum.model.User;
  * @author piotr
  */
 public class UsersDispatcher {
+
+    public static String getMD5(String string) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(string.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < array.length; ++i) {
+                sb.append(Integer.toHexString((array[i] & 255) | 256).substring(1, 3));
+            }
+            return sb.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
     
     public User getUser(String username, String md5password) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();

@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.jsforum.model.dispatchers.UsersDispatcher;
 
 /**
  *
@@ -35,7 +36,7 @@ public class LoginUserBean {
 
     public void setPassword(String password) {
         try {
-            this.password = CurrentUserBean.getMD5(password);
+            this.password = UsersDispatcher.getMD5(password);
         }
         catch (Exception ex) {
             System.out.println("Serwer nie obsługuje szyfrowania.");

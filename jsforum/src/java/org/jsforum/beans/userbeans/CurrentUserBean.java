@@ -21,22 +21,6 @@ import org.jsforum.model.User;
 @SessionScoped
 public class CurrentUserBean implements Serializable{
 
-    public static String getMD5(String string) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] array = md.digest(string.getBytes());
-            StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < array.length; ++i) {
-                sb.append(Integer.toHexString((array[i] & 255) | 256).substring(1, 3));
-            }
-            return sb.toString();
-        }
-        catch (Exception ex) { //TODO - ładnie obsłużyć wyjątek (rzucić jakiś komunikat itp.)
-            ex.printStackTrace();
-            return null;
-        }
-    }
-
     private User currentUser;
 
     public User getCurrentUser() {
