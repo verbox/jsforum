@@ -4,6 +4,7 @@
  */
 package org.jsforum.beans;
 
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
@@ -13,6 +14,7 @@ import org.jsforum.beans.userbeans.CurrentUserBean;
 import org.jsforum.beans.userbeans.LoginUserBean;
 import org.jsforum.beans.userbeans.RegisterUserBean;
 import org.jsforum.model.User;
+import org.jsforum.model.dispatchers.PostDispatcher;
 import org.jsforum.model.dispatchers.UsersDispatcher;
 
 /**
@@ -21,9 +23,26 @@ import org.jsforum.model.dispatchers.UsersDispatcher;
  */
 @ManagedBean
 @ApplicationScoped
-public final class ApplicationBean {
+public final class ApplicationBean implements Serializable{
 
     private UsersDispatcher usersDispatcher;
+    private PostDispatcher postDispatcher;
+
+    public UsersDispatcher getUsersDispatcher() {
+        return usersDispatcher;
+    }
+
+    public void setUsersDispatcher(UsersDispatcher usersDispatcher) {
+        this.usersDispatcher = usersDispatcher;
+    }
+
+    public PostDispatcher getPostDispatcher() {
+        return postDispatcher;
+    }
+
+    public void setPostDispatcher(PostDispatcher postDispatcher) {
+        this.postDispatcher = postDispatcher;
+    }
     
     /**
      * Creates a new instance of ApplicationBean

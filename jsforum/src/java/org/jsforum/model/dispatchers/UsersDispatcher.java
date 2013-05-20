@@ -55,6 +55,8 @@ public class UsersDispatcher {
         session.beginTransaction();
         User user = new User(registerUserBean.getUsername(),registerUserBean.getPassword(),
                 registerUserBean.getEmail());
+        //w registerUserBean już jest hasło w md5
+        user.setPlainPassword(registerUserBean.getPassword());
         //TODO sprawdzić, czy nie ma już usera o danym loginie
         session.save(user);
         session.getTransaction().commit();

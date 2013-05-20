@@ -27,4 +27,12 @@ public class PostDispatcher {
         Topic result = (Topic) session.get(Topic.class,topicId);
         return result;
     }
+    
+    public boolean saveTopic(Topic topic) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.save(topic);
+        session.getTransaction().commit();
+        return true;
+    }
 }

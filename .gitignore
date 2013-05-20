@@ -10,3 +10,4 @@
 *.ear
 /jsforum/nbproject/private/
 /doc/*.bak
+/jsforum/dist/

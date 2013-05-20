@@ -55,6 +55,10 @@ public class User  implements java.io.Serializable {
     public void setPassword(String password) {
         this.password = UsersDispatcher.getMD5(password);
     }
+    
+    public void setPlainPassword(String password) {
+        this.password = password;
+    }
 
 
 
