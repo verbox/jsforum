@@ -55,7 +55,7 @@ public final class ApplicationBean implements Serializable{
         User user = usersDispatcher.getUser(loginBean.getUsername(), loginBean.getPassword());
         userBean.setCurrentUser(user);
         //mechanizm logowania
-        return "index";
+        return "topicList";
     }
     
     public String registerUser(RegisterUserBean registerUserBean) {
