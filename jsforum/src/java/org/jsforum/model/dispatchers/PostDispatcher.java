@@ -4,6 +4,8 @@
  */
 package org.jsforum.model.dispatchers;
 
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.jsforum.hibernate.HibernateUtil;
 import org.jsforum.model.Post;
@@ -25,6 +27,17 @@ public class PostDispatcher {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Topic result = (Topic) session.get(Topic.class,topicId);
+        session.getTransaction().commit();
+        return result;
+    }
+    
+    public List<Topic> getAllTopics() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
+        Query q = session.createQuery("from Topic");
+        List<Topic> result = q.list();
+        session.getTransaction().commit();
         return result;
     }
     

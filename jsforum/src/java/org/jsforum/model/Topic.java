@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "topics")
 public class Topic implements Serializable {
-    @OneToMany(mappedBy = "topic")
+    @OneToMany(mappedBy = "topic", fetch = FetchType.EAGER)
     @Cascade({CascadeType.SAVE_UPDATE})
     private Set<Post> postsSet;
 
@@ -92,6 +93,11 @@ public class Topic implements Serializable {
     @Override
     public String toString() {
         return "org.jsforum.model.Topic[ id=" + topic_id + " ]";
+    }
+    
+    //różne fajne metody
+    public int getPostsCount() {
+        return postsSet.size();
     }
     
 }

@@ -69,5 +69,6 @@ public final class ApplicationBean implements Serializable{
     @PostConstruct
     public void init() {
         usersDispatcher = new UsersDispatcher();
+        postDispatcher = new PostDispatcher();
     }
 }

@@ -36,6 +36,11 @@ public class Post implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Post() {
+    }
+    
+    
     
     /*
      * NORMALNE POLA
@@ -47,11 +52,11 @@ public class Post implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date added;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
     private User author;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="topic_id")
     private Topic topic;
 
@@ -85,10 +90,6 @@ public class Post implements Serializable {
 
     public void setTopic(Topic topic) {
         this.topic = topic;
-    }
-    
-
-    public Post() {
     }
 
     public Post(String text, User author, Topic topic) {
