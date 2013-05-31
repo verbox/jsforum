@@ -10,6 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.jsforum.model.Topic;
 
 import org.jsforum.model.User;
 
@@ -22,6 +23,15 @@ import org.jsforum.model.User;
 public class CurrentUserBean implements Serializable{
 
     private User currentUser;
+    private Topic currentTopic;
+
+    public Topic getCurrentTopic() {
+        return currentTopic;
+    }
+
+    public void setCurrentTopic(Topic currentTopic) {
+        this.currentTopic = currentTopic;
+    }
 
     public User getCurrentUser() {
         return currentUser;
@@ -45,5 +55,10 @@ public class CurrentUserBean implements Serializable{
     @PostConstruct
     public void init() {
         
+    }
+    
+    public String nextTopic(Topic topic) {
+        this.setCurrentTopic(topic);
+        return "topicView";
     }
 }
