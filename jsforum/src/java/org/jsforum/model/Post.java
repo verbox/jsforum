@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -48,8 +49,8 @@ public class Post implements Serializable {
     @Column(name = "text")
     private String text;
     
-    @Column(name = "addTime")
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "addTime", columnDefinition="DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date added;
     
     @ManyToOne(fetch = FetchType.EAGER)

@@ -5,7 +5,11 @@
 package org.jsforum.model;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -98,6 +102,20 @@ public class Topic implements Serializable {
     //różne fajne metody
     public int getPostsCount() {
         return postsSet.size();
+    }
+    
+    //metoda udziwniona
+    public List<Post> getOrderedPosts() {
+        List<Post> result = new LinkedList<Post>();
+        result.addAll(postsSet);
+        Collections.sort(result, new Comparator<Post>() {
+
+            @Override
+            public int compare(Post t, Post t1) {
+                return t.getAdded().compareTo(t1.getAdded());
+            }
+        });
+        return result;
     }
     
 }
