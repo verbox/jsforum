@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="./template.xhtml"
                 
@@ -16,12 +17,16 @@
     </ui:define>
 
     <ui:define name="mainView">
+        <h:form>
             <c:forEach var="topic" items="#{applicationBean.postDispatcher.getAllTopics()}">
-                <h:form>
-                    <h:commandLink action="#{currentUserBean.nextTopic(topic)}">${topic.topicName}  ${topic.getPostsCount()}</h:commandLink>
-                </h:form>
+                
+                    <h:commandLink action="#{currentUserBean.nextTopic(topic)}">${topic.topicName}  ${topic.getPostsCount()}</h:commandLink><br/>
+                    
+                
                 
             </c:forEach>
+        <h:commandLink action="addTopic" value="Dodaj nowy temat"></h:commandLink>
+        </h:form>
     </ui:define>
 
     <ui:define name="secNav">

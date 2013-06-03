@@ -11,10 +11,12 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.CustomScoped;
 import javax.inject.Named;
 import org.jsforum.beans.userbeans.AddPostBean;
+import org.jsforum.beans.userbeans.AddTopicBean;
 import org.jsforum.beans.userbeans.CurrentUserBean;
 import org.jsforum.beans.userbeans.LoginUserBean;
 import org.jsforum.beans.userbeans.RegisterUserBean;
 import org.jsforum.model.Post;
+import org.jsforum.model.Topic;
 import org.jsforum.model.User;
 import org.jsforum.model.dispatchers.PostDispatcher;
 import org.jsforum.model.dispatchers.UsersDispatcher;
@@ -74,6 +76,14 @@ public final class ApplicationBean implements Serializable{
                 userBean.getCurrentTopic());
         postDispatcher.addPost(post);
         return "topicList";//TODO zrobić tak, by było wyrzucenie do topicView
+    }
+    
+    public String addTopic(AddTopicBean topicBean, CurrentUserBean userBean) {
+        Topic topic = new Topic(topicBean.getTopicName());
+        Post post = new Post(topicBean.getPostText(), userBean.getCurrentUser(), topic);
+        postDispatcher.saveTopic(topic);
+        postDispatcher.addPost(post);
+        return "topicList";
     }
     
     @PostConstruct
