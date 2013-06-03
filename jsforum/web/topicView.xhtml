@@ -4,7 +4,8 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="./template.xhtml"
-                xmlns:c="http://java.sun.com/jsp/jstl/core">
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html">
 
     <ui:define name="top">
         top
@@ -19,6 +20,14 @@
                 ${post.text}<br/><br/><br/>
             </div>
         </c:forEach>
+        <div class="addPostForm">
+            <h:form>
+                <h:inputTextarea value="#{addPostBean.postText}" rows="20" cols="80"></h:inputTextarea>
+                <h:commandButton action="#{applicationBean.addPost(addPostBean, currentUserBean)}"
+                                 value="Wyślij">
+                </h:commandButton>
+            </h:form>
+        </div>
     </ui:define>
 
     <ui:define name="secNav">

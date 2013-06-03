@@ -97,6 +97,7 @@ public class Post implements Serializable {
         this.text = text;
         this.author = author;
         this.topic = topic;
+        this.added = new Date();
     }
     
     
