@@ -1,7 +1,7 @@
 
 body
 {
-background: grey;
+background: #03889C;
 width: 100%;
 
 font: 12px/20px Verdana, Arial, sens-serif;
@@ -17,7 +17,7 @@ color:inherit;
 
 #wrapper 
 {
-background: white; 
+background: #5FC0CE; 
 margin: 0 auto;
 width:1080px;
 margin-bottom:20px;
@@ -39,7 +39,8 @@ padding-top: 10px;
 padding-bottom: 10px;
 padding-left: 10px;
 padding-right: 10px;
-background: grey;
+background: #1F6B75;
+color: white;
 position: relative;
 margin-top: 20px;
 margin-right: 20px;
@@ -50,28 +51,23 @@ border-radius:25px;
 }
 
 
-
-
-
 #content-outside
 {
 color: white;
-background: grey;
+background: #03899C;
 padding: 0 10px;
 overflow: hidden;
 border:2px solid;
-
 border-radius:25px;
 margin-top: 10px;
 margin-right: 20px;
-resize: vertical;
 }
 
 
 #content-inside 
 {
 color: black;
-background: silver;
+background: #5FC0CE;
 padding: 0 10px;
 border: 2px;
 margin-bottom: 10px;
@@ -82,23 +78,39 @@ margin-right: 20px;
 
 article 
 {
+padding-top: 30px;
 padding-bottom: 30px;
+padding-left: 30px;
+padding-right: 30px;
+float:left;
+width:720px;
 }
-
-
 
 
 aside 
 {
-float:right;
-width:300px;
+float: right;
+color: white;
+width: 200px;
+background: #03889C;
+border:2px solid;
+border-radius:5px;
+overflow: hidden;
+margin-top: 30px;
+margin-bottom: 30px;
+margin-left: 30px;
+margin-right: 50px;
 }
 
 
 aside section
 {
-margin-bottom: 20px;
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 10px;
+margin-right: 10px;
 overflow: hidden;
+background: #36BBCE;
 }
 
 
@@ -111,7 +123,7 @@ margin-bottom:20px;
 margin-left:10px;
 margin-right:20px;
 padding:15px;
-background: #84BA4E;
+background: #03899C;
 display: block;
 overflow: hidden;
 
@@ -208,7 +220,7 @@ list-style: none;
 
 header nav ul li a
 {
-color:#fff;
+color: #5FC0CE;
 text-decoration: none;
 font-size: 14px;
 padding:4px 8px;
@@ -218,21 +230,21 @@ padding:4px 8px;
 header nav ul li a.active
 {
 
-background: #F9D468; /* old browsers */
+background: #5FC0CE; /* old browsers */
 
 
-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='green', endColorstr='red' ); /* ie */
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#5FC0CE', endColorstr='#36BBCE' ); /* ie */
 
--ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,  startColorstr='#green', endColorstr='#red')"; /* ie */
-
-
-background: -moz-linear-gradient(top, green 0%, red 100%); /* firefox */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,  startColorstr='#5FC0CE', endColorstr='#36BBCE')"; /* ie */
 
 
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,green), color-stop(100%,red)); /* webkit */
+background: -moz-linear-gradient(top, #5FC0CE 0%, #5FC0CE 100%); /* firefox */
 
 
-color:yellow;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5FC0CE), color-stop(100%,#5FC0CE)); /* webkit */
+
+
+color: white;
 
 border:1px ;
 
@@ -242,16 +254,16 @@ border-radius: 5px;
 
 
 
--webkit-box-shadow: 1px 1px 1px yellow;
+-webkit-box-shadow: 1px 1px 1px #03899C;
 
--moz-box-shadow: 1px 1px 2px yellow;
+-moz-box-shadow: 1px 1px 2px #03899C;
 
-box-shadow: 1px 1px 1px yellow;
+box-shadow: 1px 1px 1px #03899C;
 
 }
 
 
 header nav ul li a:hover
 {
-color:#764524;
+color:#03899C;
 }

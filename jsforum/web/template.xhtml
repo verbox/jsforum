@@ -2,21 +2,67 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="./css/default.css" rel="stylesheet" type="text/css" />
+       <!-- <link href="./css/default.css" rel="stylesheet" type="text/css" />
         <link href="./css/cssLayout.css" rel="stylesheet" type="text/css" />
+       -->
+        <link href="./preview/design/style/style.css" rel="stylesheet" type="text/css" />
+        <link href="./preview/design/style/style.css" rel="stylesheet" type="text/css" />
         <title>Facelets Template</title>
     </h:head>
 
     <h:body>
 
+        <div id="wrapper">   
         <header>
-            <ui:insert name="top">Nagłówek</ui:insert>
-        </header>
-        <nav class="main"><ui:insert name="mainNav">Menu</ui:insert></nav>
+            <!--<ui:insert name="top">Nagłówek</ui:insert> -->
+            <h1><a>Nagłówek</a></h1>
+         <!--<nav class="main"><ui:insert name="mainNav">Menu</ui:insert></nav>-->
+        
+        <nav><ui:insert name="mainNav"></ui:insert>
+        <ul>
+          <li><a class="active" href="#">Menu1</a></li>
+          <li><a href="#">Menu2</a></li>
+          <li><a href="#">Menu3</a></li>
+          <li><a href="#">Menu4</a></li>
+          <li><a href="#">Menu5</a></li>
+        </ul>
+        </nav>     
+        </header>               
+        
+        <div id="content-outside">
+            <p>Dział 1</p>
+            <div id="content-inside">
+                <section>Temat 1</section>
+            </div>
+
+            <div id="content-inside">
+                <section>Temat 2</section>
+            </div> 
+        </div> <!-- /content-outside -->
+
+        <div id="content-outside">
+            <p>Dział 1</p>
+            <div id="content-inside">
+                <section>Temat 1</section>
+            </div>
+
+            <div id="content-inside">
+                <section>Temat 2</section>
+            </div>
+
+        </div> <!-- /content-outside -->
+        
+        <article>
+            <ui:insert name="mainView">
+            Lorem ipsum dolor sit amet dolor. Vestibulum vitae pede lobortis vitae, lorem. Pellentesque laoreet diam. Aliquam erat sit amet eros. Mauris in turpis at metus. Aenean vulputate imperdiet, neque ut tellus sodales semper, nunc interdum augue. Sed eget massa. Duis non pede id nisl. Proin vitae quam. Quisque nulla. Vivamus sit amet, lacinia porta. Ut blandit, est et wisi. Sed mauris pulvinar vitae, vestibulum nec, mattis feugiat augue imperdiet quis, porttitor ante ipsum ante, porta et, tristique luctus arcu nec augue. Lorem ipsum sit amet pede. Sed scelerisque id, ultrices et, bibendum purus at erat erat eget egestas non, nulla. Maecenas id eros tincidunt molestie, nunc iaculis at, volutpat eu, wisi. Morbi quam interdum elementum. Morbi consequat ligula sed enim. Sed posuere cubilia Curae, Vivamus vulputate tellus quis viverra quis, commodo turpis sagittis ipsum sed metus. Curabitur vel quam. Praesent elit nibh, volutpat urna. Pellentesque tempus nunc eu orci ipsum, molestie aliquam. Nunc eleifend in, dapibus eu, faucibus at, fringilla erat. Aenean quis turpis at lorem libero, pharetra sem eget dolor rhoncus eu, tempor ac, vehicula libero. Praesent feugiat. Cum.
+            </ui:insert>
+        </article>
+        <!--    
         <section class="main">
             <ui:insert name="mainView">Lorem ipsum dolor sit amet dolor. Vestibulum vitae pede lobortis vitae, lorem. Pellentesque laoreet diam. Aliquam erat sit amet eros. Mauris in turpis at metus. Aenean vulputate imperdiet, neque ut tellus sodales semper, nunc interdum augue. Sed eget massa. Duis non pede id nisl. Proin vitae quam. Quisque nulla. Vivamus sit amet, lacinia porta. Ut blandit, est et wisi. Sed mauris pulvinar vitae, vestibulum nec, mattis feugiat augue imperdiet quis, porttitor ante ipsum ante, porta et, tristique luctus arcu nec augue. Lorem ipsum sit amet pede. Sed scelerisque id, ultrices et, bibendum purus at erat erat eget egestas non, nulla. Maecenas id eros tincidunt molestie, nunc iaculis at, volutpat eu, wisi. Morbi quam interdum elementum. Morbi consequat ligula sed enim. Sed posuere cubilia Curae, Vivamus vulputate tellus quis viverra quis, commodo turpis sagittis ipsum sed metus. Curabitur vel quam. Praesent elit nibh, volutpat urna. Pellentesque tempus nunc eu orci ipsum, molestie aliquam. Nunc eleifend in, dapibus eu, faucibus at, fringilla erat. Aenean quis turpis at lorem libero, pharetra sem eget dolor rhoncus eu, tempor ac, vehicula libero. Praesent feugiat. Cum.
             </ui:insert></section>
@@ -29,7 +75,22 @@
             </ui:insert>
         </nav>
         <footer><ui:insert name="footer">Stopka</ui:insert></footer>
-
+        -->
+        
+        <aside>
+            <ui:insert name="secNav">Dodatkowe menu
+                <section>
+                    Pozycja 1
+                </section>
+                <section>
+                    Pozycja 2
+                </section>
+            </ui:insert>
+        </aside>
+        
+        <footer><ui:insert name="footer">Stopka</ui:insert></footer>
+       
+        </div> <!--wrapper --> 
     </h:body>
 
 </html>
