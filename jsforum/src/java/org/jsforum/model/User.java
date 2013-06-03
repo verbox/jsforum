@@ -30,7 +30,7 @@ public class User  implements java.io.Serializable {
 
     public User(String username, String password, String email) {
        this.username = username;
-       this.password = UsersDispatcher.getMD5(password);
+       this.password = password;
        this.email = email;
     }
    
@@ -53,10 +53,6 @@ public class User  implements java.io.Serializable {
     }
     
     public void setPassword(String password) {
-        this.password = UsersDispatcher.getMD5(password);
-    }
-    
-    public void setPlainPassword(String password) {
         this.password = password;
     }
 

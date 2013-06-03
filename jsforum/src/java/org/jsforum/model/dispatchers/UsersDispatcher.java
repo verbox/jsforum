@@ -40,7 +40,7 @@ public class UsersDispatcher {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(User.class);
         criteria.add(Restrictions.like("username",username)); //TODO nieładne - chyba było coś z criteria i spójnikiem AND
-        criteria.add(Restrictions.like("password",md5password));
+        criteria.add(Restrictions.like("password",getMD5(md5password)));
         List<User> findedUsers = criteria.list();
         if (findedUsers.size()>1) {
             //TODO jakiś zgrabny wyjątek
@@ -55,8 +55,7 @@ public class UsersDispatcher {
         session.beginTransaction();
         User user = new User(registerUserBean.getUsername(),registerUserBean.getPassword(),
                 registerUserBean.getEmail());
-        //w registerUserBean już jest hasło w md5
-        user.setPlainPassword(registerUserBean.getPassword());
+        user.setPassword(getMD5(registerUserBean.getPassword()));
         //TODO sprawdzić, czy nie ma już usera o danym loginie
         session.save(user);
         session.getTransaction().commit();
