@@ -41,6 +41,10 @@ public class CurrentUserBean implements Serializable{
         this.currentUser = currentUser;
     }
     
+    public boolean isLogged() {
+        return currentUser!=null;
+    }
+    
     /**
      * Creates a new instance of CurrentUserBean
      */

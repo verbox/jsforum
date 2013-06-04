@@ -12,20 +12,15 @@
         top
     </ui:define>
 
-    <ui:define name="mainNav">
-        mainNav
-    </ui:define>
-
     <ui:define name="mainView">
         <h:form>
             <c:forEach var="topic" items="#{applicationBean.postDispatcher.getAllTopics()}">
                 
-                    <h:commandLink action="#{currentUserBean.nextTopic(topic)}">${topic.topicName}  ${topic.getPostsCount()}</h:commandLink><br/>
-                    
-                
+                    <h:commandLink action="#{currentUserBean.nextTopic(topic)}">${topic.topicName} - ${topic.getFirstPostShortcut()}</h:commandLink>
+                    , ${topic.getOrderedPosts().get(0).author.username}  (${topic.getPostsCount()})<br/>
                 
             </c:forEach>
-        <h:commandLink action="addTopic" value="Dodaj nowy temat"></h:commandLink>
+            <h:commandLink action="addTopic" value="Dodaj nowy temat" rendered="${currentUserBean.isLogged()}"></h:commandLink>
         </h:form>
     </ui:define>
 

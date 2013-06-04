@@ -118,4 +118,10 @@ public class Topic implements Serializable {
         return result;
     }
     
+    public String getFirstPostShortcut() {
+        String result = getOrderedPosts().get(0).getText();
+        if (result.length()>20) result = result.substring(0,20);
+        return result;
+    }
+    
 }

@@ -21,7 +21,7 @@
             </div>
         </c:forEach>
         <div class="addPostForm">
-            <h:form>
+            <h:form rendered="${currentUserBean.isLogged()}">
                 <h:inputTextarea value="#{addPostBean.postText}" rows="20" cols="80"></h:inputTextarea>
                 <h:commandButton action="#{applicationBean.addPost(addPostBean, currentUserBean)}"
                                  value="Wyślij">
@@ -31,7 +31,9 @@
     </ui:define>
 
     <ui:define name="secNav">
-        secNav
+        <h:form>
+            <h:commandLink action="topicList" value="Powrót do listy tematów"></h:commandLink>
+        </h:form>
     </ui:define>
 
     <ui:define name="footer">
