@@ -25,6 +25,10 @@ public class User  implements java.io.Serializable {
     public void setType(char type) {
         this.type = type;
     }
+    
+    public boolean isAdmin() {
+        return type=='A';
+    }
 
     public String getEmail() {
         return email;

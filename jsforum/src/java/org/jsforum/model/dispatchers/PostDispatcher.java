@@ -48,4 +48,12 @@ public class PostDispatcher {
         session.getTransaction().commit();
         return true;
     }
+    
+    public boolean deletePost(Post post) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.delete(post);
+        session.getTransaction().commit();
+        return true;
+    }
 }

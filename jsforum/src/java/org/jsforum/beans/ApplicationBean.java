@@ -92,6 +92,15 @@ public final class ApplicationBean implements Serializable{
         return "topicList";
     }
     
+    public String deletePost(Post post, CurrentUserBean userBean) {
+        //na wszelki wypadek
+        if (userBean.getCurrentUser().getType()=='A') {
+            postDispatcher.deletePost(post);
+            userBean.setCurrentTopic(postDispatcher.getTopic(userBean.getCurrentTopic().getId()));
+        }
+        return null;
+    }
+    
     public void refresh() {
         FacesContext context = FacesContext.getCurrentInstance();
         String viewId = context.getViewRoot().getViewId();
