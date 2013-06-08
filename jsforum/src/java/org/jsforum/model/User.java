@@ -16,6 +16,15 @@ public class User  implements java.io.Serializable {
      private String username;
      private String password;
      private String email;
+     private char type = 'U';
+
+    public char getType() {
+        return type;
+    }
+
+    public void setType(char type) {
+        this.type = type;
+    }
 
     public String getEmail() {
         return email;

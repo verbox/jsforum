@@ -6,10 +6,13 @@ package org.jsforum.beans;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import javax.faces.application.ViewHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.CustomScoped;
-import javax.inject.Named;
+import javax.faces.component.UIViewRoot;
+import javax.faces.context.FacesContext;
+import javax.faces.webapp.FacesServlet;
+import javax.ws.rs.core.Response;
 import org.jsforum.beans.userbeans.AddPostBean;
 import org.jsforum.beans.userbeans.AddTopicBean;
 import org.jsforum.beans.userbeans.CurrentUserBean;
@@ -75,7 +78,10 @@ public final class ApplicationBean implements Serializable{
         Post post = new Post(addPostBean.getPostText(), userBean.getCurrentUser(),
                 userBean.getCurrentTopic());
         postDispatcher.addPost(post);
-        return "topicList";//TODO zrobić tak, by było wyrzucenie do topicView
+        //trzeba odświeżyć topic
+        userBean.setCurrentTopic(postDispatcher.getTopic(userBean.getCurrentTopic().getId()));
+        //refresh();
+        return "addedPost";//TODO zrobić tak, by było wyrzucenie do topicView
     }
     
     public String addTopic(AddTopicBean topicBean, CurrentUserBean userBean) {
@@ -84,6 +90,15 @@ public final class ApplicationBean implements Serializable{
         postDispatcher.saveTopic(topic);
         postDispatcher.addPost(post);
         return "topicList";
+    }
+    
+    public void refresh() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        String viewId = context.getViewRoot().getViewId();
+        ViewHandler handler = context.getApplication().getViewHandler();
+        UIViewRoot root = handler.createView(context, viewId);
+        root.setViewId(viewId);
+        context.setViewRoot(root);
     }
     
     @PostConstruct
