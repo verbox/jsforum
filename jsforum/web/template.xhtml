@@ -22,17 +22,24 @@
             <!--<ui:insert name="top">Nagłówek</ui:insert> -->
             <h1><a>Nagłówek</a></h1>
          <!--<nav class="main"><ui:insert name="mainNav">Menu</ui:insert></nav>-->
-        
-        <nav><ui:insert name="mainNav"></ui:insert>
-        <ul>
-          <li><a class="active" href="#">Menu1</a></li>
-          <li><a href="#">Menu2</a></li>
-          <li><a href="#">Menu3</a></li>
-          <li><a href="#">Menu4</a></li>
-          <li><a href="#">Menu5</a></li>
-        </ul>
+        </header>  
+            <!-- dlaczego nagłówek był w menu? -->
+        <nav>
+            Witaj, <h:outputLabel value="#{currentUserBean.getUserName()}"></h:outputLabel>
+           <!--To powyższe też gdzieś w nagłówku powinno być, ale to już sam namieszałem - pj-->
+           <h:form>
+               (
+               <h:commandLink action="#{currentUserBean.logout()}" value="wyloguj" rendered="${currentUserBean.isLogged()}"></h:commandLink>
+               <h:commandLink action="loginView" value="zaloguj" rendered="${!currentUserBean.isLogged()}"></h:commandLink>
+               )
+           </h:form>
+            <ui:insert name="mainNav">
+                
+            </ui:insert>
+           
+           
         </nav>     
-        </header>               
+             
         
         <div id="content-outside">
             <p>Dział 1</p>

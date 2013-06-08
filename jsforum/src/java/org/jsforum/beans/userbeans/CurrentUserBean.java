@@ -65,4 +65,9 @@ public class CurrentUserBean implements Serializable{
         this.setCurrentTopic(topic);
         return "topicView";
     }
+    
+    public String getUserName() {
+        if (currentUser!=null) return currentUser.getUsername();
+        return "anonimowy";
+    }
 }
