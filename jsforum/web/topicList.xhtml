@@ -15,10 +15,14 @@
     <ui:define name="mainView">
         <h:form>
             <c:forEach var="topic" items="#{applicationBean.postDispatcher.getAllTopics()}">
-                
-                    <h:commandLink action="#{currentUserBean.nextTopic(topic)}">${topic.topicName} - ${topic.getFirstPostShortcut()}</h:commandLink>
-                    , ${topic.getOrderedPosts().get(0).author.username}  (${topic.getPostsCount()})<br/>
-                
+                <div id="content-outside">   
+                    <h:commandLink action="#{currentUserBean.nextTopic(topic)}"><p>${topic.topicName}</p></h:commandLink>
+                    <div id="content-inside">
+                         ${topic.getFirstPostShortcut()}<br/>
+                         Autor:  ${topic.getOrderedPosts().get(0).author.username}<br/>
+                         Liczba postów: ${topic.getPostsCount()}
+                    </div>
+                </div>
             </c:forEach>
             <h:commandLink action="addTopic" value="Dodaj nowy temat" rendered="${currentUserBean.isLogged()}"></h:commandLink>
         </h:form>
