@@ -18,7 +18,7 @@
                 <div id="content-outside">   
                     <h:commandLink action="#{currentUserBean.nextTopic(topic)}"><p>${topic.topicName}</p></h:commandLink>
                     <div id="content-inside">
-                         ${topic.getFirstPostShortcut()}<br/>
+                        <i>${topic.getFirstPostShortcut()}</i><br/>
                          Autor:  ${topic.getOrderedPosts().get(0).author.username}<br/>
                          Liczba postów: ${topic.getPostsCount()}
                     </div>

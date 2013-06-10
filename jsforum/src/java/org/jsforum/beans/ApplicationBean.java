@@ -95,7 +95,8 @@ public final class ApplicationBean implements Serializable{
     public String deletePost(Post post, CurrentUserBean userBean) {
         //na wszelki wypadek
         if (userBean.getCurrentUser().getType()=='A') {
-            postDispatcher.deletePost(post);
+            boolean result = postDispatcher.deletePost(post);
+            if (result) return "topicList";
             userBean.setCurrentTopic(postDispatcher.getTopic(userBean.getCurrentTopic().getId()));
         }
         return null;

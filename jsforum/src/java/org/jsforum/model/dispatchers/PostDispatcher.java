@@ -49,10 +49,27 @@ public class PostDispatcher {
         return true;
     }
     
+    //return true jak wywalił się też temat
     public boolean deletePost(Post post) {
+        long topicId = post.getTopic().getId();
+        
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         session.delete(post);
+        session.getTransaction().commit();
+        
+        Topic topic = getTopic(topicId);
+        if (topic.getPostsCount()==0) {
+            deleteTopic(topic);
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean deleteTopic(Topic topic) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.delete(topic);
         session.getTransaction().commit();
         return true;
     }
