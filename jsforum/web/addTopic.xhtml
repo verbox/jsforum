@@ -9,31 +9,33 @@
     </ui:define>
 
     <ui:define name="mainNav">
-        mainNav
+
     </ui:define>
 
     <ui:define name="mainView">
+
         <h:form>
         <h:panelGrid columns="2">
-            
             <h:outputLabel value="Nazwa tematu:"></h:outputLabel>
             <h:inputText value="#{addTopicBean.topicName}"></h:inputText>
             
             <h:outputLabel value="Treść postu:"></h:outputLabel>
             <h:inputTextarea value="#{addTopicBean.postText}" rows="20" cols="80"></h:inputTextarea>
-            
-            <h:commandButton action="#{applicationBean.addTopic(addTopicBean, currentUserBean)}" value="Dodaj temat"></h:commandButton>
+   
+             <h:commandButton action="#{applicationBean.addTopic(addTopicBean, currentUserBean)}" value="Dodaj temat"></h:commandButton>           
             
         </h:panelGrid>
             </h:form>
+
     </ui:define>
 
     <ui:define name="secNav">
-        secNav
+           
     </ui:define>
 
     <ui:define name="footer">
-        footer
+
     </ui:define>
+
 
 </ui:composition>

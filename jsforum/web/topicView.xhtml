@@ -14,36 +14,60 @@
     <ui:define name="mainView">
         <c:forEach var="post" items="#{currentUserBean.currentTopic.getOrderedPosts()}">
             <div class="postView">
-                <!--TODO tutaj powinien być cały ładny widok, zgodny z szablonem-->
-                ${post.author.username} <br/>
-                ${post.added} <br/>
-                ${post.text}<br/>
+                
+                        
+            <div id="content-outside">
+                        <p>${post.author.username} </p>
+                        ${post.added} <br/>
+                <div id="content-inside">
+                <section>
+                    ${post.text}<br/>
+                </section>
+                </div>    
+                                    
+                <div id="content-inside">
+                <section>
                 <h:form rendered="${currentUserBean.currentUser.isAdmin()}">
                     <h:commandButton action="#{applicationBean.deletePost(post, currentUserBean)}"
                                      value="USUŃ">
-                    </h:commandButton> (Uwaga! Nieodwracalne!)
+                    </h:commandButton> (Uwaga! Nieodwracalne!)                  
                 </h:form>
+                </section>
+                </div>         
+            </div>
+               
                 <br/><br/>
             </div>
         </c:forEach>
+        
         <div class="addPostForm">
+            
+            <div id="content-outside">                        
+                    
             <h:form rendered="${currentUserBean.isLogged()}">
                 <h:inputTextarea value="#{addPostBean.postText}" rows="20" cols="80"></h:inputTextarea>
+                
+                <div id="content-inside">
                 <h:commandButton action="#{applicationBean.addPost(addPostBean, currentUserBean)}"
                                  value="Wyślij">
                 </h:commandButton>
+                </div>
             </h:form>
+            </div>
+            
         </div>
     </ui:define>
 
     <ui:define name="secNav">
+        <section>
         <h:form>
             <h:commandLink action="topicList" value="Powrót do listy tematów"></h:commandLink>
         </h:form>
+        </section>
     </ui:define>
 
     <ui:define name="footer">
-        footer
+        
     </ui:define>
 
 </ui:composition>

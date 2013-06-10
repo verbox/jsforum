@@ -20,7 +20,7 @@
         <div id="wrapper">   
         <header>
             <!--<ui:insert name="top">Nagłówek</ui:insert> -->
-            <h1><a>Nagłówek</a></h1>
+            <h1><a>JSForum</a></h1>
          <!--<nav class="main"><ui:insert name="mainNav">Menu</ui:insert></nav>-->
          <nav>
             Witaj, <h:outputLabel value="#{currentUserBean.getUserName()}"></h:outputLabel>
@@ -30,10 +30,7 @@
                <h:commandLink action="#{currentUserBean.logout()}" value="wyloguj" rendered="${currentUserBean.isLogged()}"></h:commandLink>
                <h:commandLink action="loginView" value="zaloguj" rendered="${!currentUserBean.isLogged()}"></h:commandLink>
                )
-           </h:form>
-            
-           
-           
+           </h:form>          
         </nav>   
         </header>  
           
@@ -41,16 +38,6 @@
                 
         </ui:insert>     
         
-<!--        <div id="content-outside">
-            <p>Dział 1</p>
-            <div id="content-inside">
-                <section>Temat 1</section>
-            </div>
-
-            <div id="content-inside">
-                <section>Temat 2</section>
-            </div> 
-        </div>  /content-outside -->
         
         <article>
             <ui:insert name="mainView">
@@ -73,17 +60,13 @@
         -->
         
         <aside>
-            <ui:insert name="secNav">Dodatkowe menu
-                <section>
-                    Pozycja 1
-                </section>
-                <section>
-                    Pozycja 2
+            <ui:insert name="secNav">
+                <section>                  
                 </section>
             </ui:insert>
         </aside>
         
-        <footer><ui:insert name="footer">Stopka</ui:insert></footer>
+        <footer><ui:insert name="footer"></ui:insert></footer>
        
         </div> <!--wrapper --> 
     </h:body>

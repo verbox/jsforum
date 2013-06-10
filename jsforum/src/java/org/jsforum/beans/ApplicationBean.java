@@ -61,16 +61,27 @@ public final class ApplicationBean implements Serializable{
     public String loginUser(LoginUserBean loginBean, CurrentUserBean userBean) {
         User user = usersDispatcher.getUser(loginBean.getUsername(), loginBean.getPassword());
         userBean.setCurrentUser(user);
+        /*
+        * mocno naciagane 
+        * Wystapi, gdy user zostal dodany wczesniej i zrobiony adminem, a teraz
+        * jest dodawany, jako zwykly uzytkownik.
+        */
+        if(user.getUsername().equals("errorUser"))
+            return "loginView";
         //mechanizm logowania
         return "topicList";
     }
     
     public String registerUser(RegisterUserBean registerUserBean) {
-        //TODO sprawdź, czy zgadza się password i confirmPassword
+        
+        if(!registerUserBean.getConfirmPassword().equals(registerUserBean.getPassword()))
+           return "error";
+       
+        //zarejestrowano uzytkownika
         if (usersDispatcher.addUser(registerUserBean))
             return "index";
-        //TODO komunikaty
-        return "registerView";
+
+        return "error";
     }
     
     public String addPost(AddPostBean addPostBean, CurrentUserBean userBean) {

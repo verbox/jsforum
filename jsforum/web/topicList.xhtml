@@ -24,16 +24,22 @@
                     </div>
                 </div>
             </c:forEach>
+            
+            <div id="content-outside"> 
+                <div id="content-inside">
             <h:commandLink action="addTopic" value="Dodaj nowy temat" rendered="${currentUserBean.isLogged()}"></h:commandLink>
+                </div>
+            </div>
+            
         </h:form>
     </ui:define>
 
     <ui:define name="secNav">
-        secNav
+        
     </ui:define>
 
     <ui:define name="footer">
-        footer
+        
     </ui:define>
 
 </ui:composition>

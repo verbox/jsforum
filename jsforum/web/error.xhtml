@@ -10,16 +10,20 @@
 
     <ui:define name="mainView">
         
-        Dzięki, Twój post został dodany.<br/>    
+        Błąd rejestracji.   
         
     </ui:define>
     
-    <ui:define name="secNav">
-        Kliknij <h:link outcome="topicView.xhtml" value="tutaj"></h:link> aby powrócić do tematu.
+   <ui:define name="secNav">
+        <section>
+        <h:form>
+            <h:commandLink action="registerView" value="Powrót do rejestracji"></h:commandLink>
+        </h:form>
+        </section>
     </ui:define>
-
     <ui:define name="footer">
         
     </ui:define>
 
 </ui:composition>
+

@@ -42,8 +42,9 @@ public class UsersDispatcher {
         criteria.add(Restrictions.like("username",username)); //TODO nieładne - chyba było coś z criteria i spójnikiem AND
         criteria.add(Restrictions.like("password",getMD5(md5password)));
         List<User> findedUsers = criteria.list();
-        if (findedUsers.size()>1) {
-            //TODO jakiś zgrabny wyjątek
+        if (findedUsers.size()>1) { 
+            //mocno naciagane
+            return new User("errorUser", getMD5("errorUser"), "errorUser@op.pl");
         }
         if (findedUsers.isEmpty()) return null;
         session.close();
@@ -56,7 +57,14 @@ public class UsersDispatcher {
         User user = new User(registerUserBean.getUsername(),registerUserBean.getPassword(),
                 registerUserBean.getEmail());
         user.setPassword(getMD5(registerUserBean.getPassword()));
-        //TODO sprawdzić, czy nie ma już usera o danym loginie
+        
+        //sprawdza, czy nie ma już usera o danym loginie
+        Criteria criteria = session.createCriteria(User.class);
+        criteria.add(Restrictions.like("username",registerUserBean.getUsername()));
+        List<User> findedUsers = criteria.list();
+        
+        if(findedUsers.size() > 1) return false;
+             
         session.save(user);
         session.getTransaction().commit();
         return true;
